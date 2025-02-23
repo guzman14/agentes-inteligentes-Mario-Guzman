@@ -1,4 +1,5 @@
 def diagnostico():
+    # Bienvenida al sistema de diagnóstico
     print("🩺 Bienvenido al sistema experto de diagnóstico médico")
     print("Responde con 'sí' o 'no' a las siguientes preguntas.")
 
@@ -8,6 +9,7 @@ def diagnostico():
     dolor_cabeza = input("¿Tienes dolor de cabeza? (sí/no): ").strip().lower()
     cansancio = input("¿Te sientes muy cansado? (sí/no): ").strip().lower()
 
+    # Diagnóstico basado en las respuestas del usuario
     if fiebre == "sí" and tos == "sí" and dolor_garganta == "sí":
         print("📋 Posible diagnóstico: Gripe o resfriado común.")
     elif fiebre == "sí" and cansancio == "sí" and dolor_cabeza == "sí":
