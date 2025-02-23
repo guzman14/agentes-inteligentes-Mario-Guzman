@@ -1,6 +1,7 @@
 import random
 
 def recomendar_pelicula():
+    # Diccionario que almacena listas de películas por género
     peliculas = {
         "acción": ["Mad Max: Fury Road", "John Wick", "Gladiador", "Misión Imposible", "The Dark Knight"],
         "comedia": ["Superbad", "Dumb and Dumber", "Step Brothers", "The Hangover", "Ace Ventura"],
@@ -13,12 +14,16 @@ def recomendar_pelicula():
     print("🎬 Bienvenido al agente de recomendación de películas")
     print("Géneros disponibles: acción, comedia, drama, terror, ciencia ficción, animación")
 
+    # Solicita al usuario el género favorito
     genero = input("¿Cuál es tu género favorito? ").strip().lower()
 
+    # Verifica si el género ingresado está en el diccionario
     if genero in peliculas:
+        # Selecciona una película aleatoria del género elegido
         pelicula_recomendada = random.choice(peliculas[genero])
         print(f"🎥 Te recomendamos ver: {pelicula_recomendada}")
     else:
+        # Si el género no es válido, muestra un mensaje de error
         print("❌ Género no encontrado. Intenta de nuevo con una opción válida.")
 
 if __name__ == "__main__":
