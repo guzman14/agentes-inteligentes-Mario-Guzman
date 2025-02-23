@@ -3,8 +3,9 @@ import random
 
 class Semaforo:
     def __init__(self):
-        self.estado = "rojo"  # Estado inicial
-        self.duracion = {"verde": 5, "amarillo": 2, "rojo": 5}  # Tiempos base
+        self.estado = "rojo"  # Estado inicial del semáforo
+        # Duración base para cada estado (verde, amarillo, rojo)
+        self.duracion = {"verde": 5, "amarillo": 2, "rojo": 5}
 
     def detectar_vehiculos(self):
         """Simula la detección de vehículos (cantidad aleatoria)."""
@@ -23,15 +24,16 @@ class Semaforo:
             self.duracion["rojo"] = 5
 
     def cambiar_estado(self):
-        """Cambia el estado del semáforo cíclicamente."""
+        """Cambia el estado del semáforo cíclicamente y ajusta la duración según la detección de vehículos."""
         while True:
-            cantidad_vehiculos = self.detectar_vehiculos()
-            self.ajustar_tiempo(cantidad_vehiculos)
+            cantidad_vehiculos = self.detectar_vehiculos()  # Detectar cantidad de vehículos
+            self.ajustar_tiempo(cantidad_vehiculos)  # Ajustar tiempos según el tráfico
 
+            # Imprimir el estado actual del semáforo
             print(f"🚦 Estado: {self.estado.upper()} | Vehículos detectados: {cantidad_vehiculos}")
-            time.sleep(self.duracion[self.estado])
+            time.sleep(self.duracion[self.estado])  # Esperar el tiempo según el estado
 
-            # Cambio de estado
+            # Cambio de estado cíclico
             if self.estado == "verde":
                 self.estado = "amarillo"
             elif self.estado == "amarillo":
@@ -40,5 +42,6 @@ class Semaforo:
                 self.estado = "verde"
 
 if __name__ == "__main__":
-    semaforo = Semaforo()
-    semaforo.cambiar_estado()
+    semaforo = Semaforo()  # Crear un objeto semáforo
+    semaforo.cambiar_estado()  # Iniciar el cambio de estado del semáforo
+
